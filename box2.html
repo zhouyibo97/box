@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				display:flex;
+				flex-direction: row;
+				flex-wrap: wrap-reverse;
+				justify-content: space-between;
+				height: 500px;
+				align-content: center;
+				align-items: center;
+			}
+			.stage {
+				perspective: 2000px;
+				perspective-origin: 500px -500px;
+				margin-left: 200px;
+				margin-top: 200px;
+			}
+			
+			.stage .box {
+				width: 200px;
+				height: 200px;
+				transform-style: preserve-3d;
+				position: relative;
+				animation: rotation 8s linear 1s infinite both;
+			}
+			
+			.stage .box:hover {
+				transform: rotateX(90deg) rotateY(90deg);
+			}
+			
+			@keyframes rotation {
+				from {
+					transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+				}
+				to {
+					transform: rotateZ(360deg) rotateX(360deg) rotateY(360deg);
+				}
+			}
+			
+			.stage .box .face {
+				width: 200px;
+				height: 200px;
+				border: solid #FFDEAD 2px;
+				position: absolute;
+			}
+			
+			.face:nth-child(1) {
+				transform: translateZ(100px);
+				background-color: #D1EEEE;
+			}
+			
+			.face:nth-child(2) {
+				transform: translateZ(-100px);
+				background-color: #7CFC00;
+			}
+			
+			.face:nth-child(3) {
+				transform: rotateX(90deg) translateZ(100px);
+				background-color: #1C86EE;
+			}
+			
+			.face:nth-child(4) {
+				transform: rotateX(-90deg) translateZ(100px);
+				background-color: #8B0000;
+			}
+			
+			.face:nth-child(5) {
+				transform: rotateY(-90deg) translateZ(100px);
+				background-color: #4A4A4A;
+			}
+			
+			.face:nth-child(6) {
+				transform: rotateY(90deg) translateZ(100px);
+				background-color: #CD00CD;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="stage">
+				<div class="box">
+					<div class="face">
+						前
+					</div>
+					<div class="face">
+						后
+					</div>
+					<div class="face">
+						上
+					</div>
+					<div class="face">
+						下
+					</div>
+					<div class="face">
+						左
+					</div>
+					<div class="face">
+						右
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
